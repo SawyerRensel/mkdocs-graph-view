@@ -1,0 +1,85 @@
+site_name: MkDocs Graph View
+site_description: Interactive graph visualizations for MkDocs documentation
+site_author: Sawyer Rensel
+site_url: https://sawyerrensel.github.io/mkdocs-graph-view/
+
+repo_name: sawyerrensel/mkdocs-graph-view
+repo_url: https://github.com/sawyerrensel/mkdocs-graph-view
+
+theme:
+  name: material
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+plugins:
+  - search
+  - graph:
+      local_graph_depth: 2
+      repel_force: 1.0
+      center_force: 0.2
+      link_distance: 50
+      show_tags: false
+      enable_drag: true
+      enable_zoom: true
+      focus_on_hover: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quick-start.md
+  - Configuration:
+      - Overview: configuration/overview.md
+      - Options Reference: configuration/options.md
+      - Examples: configuration/examples.md
+  - Usage:
+      - Basic Usage: usage/basic.md
+      - Advanced Features: usage/advanced.md
+      - Best Practices: usage/best-practices.md
+  - Contributing: contributing.md
+  - Changelog: changelog.md
+
+
+docs_dir: docs
+edit_uri: edit/main/docs/
+site_dir: site
