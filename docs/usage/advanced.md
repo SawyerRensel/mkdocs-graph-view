@@ -152,6 +152,25 @@ fetch('/graph.json')
 
 ### Disable Graph on Specific Pages
 
+#### Per-Page Control (Frontmatter)
+
+Hide the graph on individual pages using frontmatter:
+
+```yaml
+---
+hide:
+  - graph
+---
+
+# Page Title
+
+This page won't display the graph view.
+```
+
+This works just like hiding the table of contents or navigation in MkDocs Material theme.
+
+#### Global Control (Environment Variables)
+
 Use conditional configuration with environment variables:
 
 ```yaml

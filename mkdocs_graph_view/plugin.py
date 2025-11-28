@@ -50,6 +50,15 @@ class GraphPlugin(BasePlugin[GraphConfig]):
         self.page_tags = {}  # Store tags for each page if available
 
     def on_page_content(self, html, page, config, files):
+        # Check if graph should be hidden on this page
+        if hasattr(page, 'meta') and 'hide' in page.meta:
+            hide_list = page.meta.get('hide', [])
+            if isinstance(hide_list, str):
+                hide_list = [hide_list]
+            if 'graph' in hide_list:
+                # Skip graph injection for this page
+                return html
+
         # Extract links
         parser = LinkParser()
         parser.feed(html)
