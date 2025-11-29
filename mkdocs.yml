@@ -39,7 +39,7 @@ theme:
 
 plugins:
   - search
-  - graph:
+  - graph-view:
       local_graph_depth: 2
       repel_force: 1.0
       center_force: 0.2
@@ -62,6 +62,9 @@ markdown_extensions:
   - tables
   - attr_list
   - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 nav:
   - Home: index.md
