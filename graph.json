@@ -1,0 +1,197 @@
+{
+  "nodes": [
+    {
+      "id": "",
+      "title": "Home",
+      "tags": [],
+      "group": 1
+    },
+    {
+      "id": "changelog/",
+      "title": "Changelog",
+      "tags": [],
+      "group": 1
+    },
+    {
+      "id": "contributing/",
+      "title": "Contributing",
+      "tags": [],
+      "group": 1
+    },
+    {
+      "id": "configuration/examples/",
+      "title": "Examples",
+      "tags": [],
+      "group": 1
+    },
+    {
+      "id": "configuration/options/",
+      "title": "Options Reference",
+      "tags": [],
+      "group": 1
+    },
+    {
+      "id": "configuration/overview/",
+      "title": "Overview",
+      "tags": [],
+      "group": 1
+    },
+    {
+      "id": "getting-started/installation/",
+      "title": "Installation",
+      "tags": [],
+      "group": 1
+    },
+    {
+      "id": "getting-started/quick-start/",
+      "title": "Quick Start",
+      "tags": [],
+      "group": 1
+    },
+    {
+      "id": "usage/advanced/",
+      "title": "Advanced Features",
+      "tags": [],
+      "group": 1
+    },
+    {
+      "id": "usage/basic/",
+      "title": "Basic Usage",
+      "tags": [],
+      "group": 1
+    },
+    {
+      "id": "usage/best-practices/",
+      "title": "Best Practices",
+      "tags": [],
+      "group": 1
+    }
+  ],
+  "links": [
+    {
+      "source": "",
+      "target": "getting-started/installation/",
+      "value": 1
+    },
+    {
+      "source": "",
+      "target": "configuration/overview/",
+      "value": 1
+    },
+    {
+      "source": "",
+      "target": "usage/basic/",
+      "value": 1
+    },
+    {
+      "source": "",
+      "target": "contributing/",
+      "value": 1
+    },
+    {
+      "source": "configuration/examples/",
+      "target": "usage/best-practices/",
+      "value": 1
+    },
+    {
+      "source": "configuration/examples/",
+      "target": "configuration/options/",
+      "value": 1
+    },
+    {
+      "source": "configuration/examples/",
+      "target": "usage/advanced/",
+      "value": 1
+    },
+    {
+      "source": "configuration/options/",
+      "target": "configuration/examples/",
+      "value": 1
+    },
+    {
+      "source": "configuration/options/",
+      "target": "usage/best-practices/",
+      "value": 1
+    },
+    {
+      "source": "configuration/overview/",
+      "target": "configuration/options/",
+      "value": 1
+    },
+    {
+      "source": "configuration/overview/",
+      "target": "configuration/examples/",
+      "value": 1
+    },
+    {
+      "source": "configuration/overview/",
+      "target": "usage/best-practices/",
+      "value": 1
+    },
+    {
+      "source": "getting-started/installation/",
+      "target": "getting-started/quick-start/",
+      "value": 1
+    },
+    {
+      "source": "getting-started/quick-start/",
+      "target": "configuration/overview/",
+      "value": 1
+    },
+    {
+      "source": "getting-started/quick-start/",
+      "target": "configuration/examples/",
+      "value": 1
+    },
+    {
+      "source": "getting-started/quick-start/",
+      "target": "usage/best-practices/",
+      "value": 1
+    },
+    {
+      "source": "usage/advanced/",
+      "target": "usage/best-practices/",
+      "value": 1
+    },
+    {
+      "source": "usage/advanced/",
+      "target": "configuration/examples/",
+      "value": 1
+    },
+    {
+      "source": "usage/advanced/",
+      "target": "configuration/options/",
+      "value": 1
+    },
+    {
+      "source": "usage/basic/",
+      "target": "usage/advanced/",
+      "value": 1
+    },
+    {
+      "source": "usage/basic/",
+      "target": "usage/best-practices/",
+      "value": 1
+    },
+    {
+      "source": "usage/basic/",
+      "target": "configuration/options/",
+      "value": 1
+    },
+    {
+      "source": "usage/best-practices/",
+      "target": "configuration/examples/",
+      "value": 1
+    },
+    {
+      "source": "usage/best-practices/",
+      "target": "usage/advanced/",
+      "value": 1
+    },
+    {
+      "source": "usage/best-practices/",
+      "target": "configuration/options/",
+      "value": 1
+    }
+  ]
+}
