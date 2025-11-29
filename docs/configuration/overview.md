@@ -57,7 +57,7 @@ Begin with defaults and only customize what you need:
 
 ```yaml
 plugins:
-  - graph
+  - graph-view
 ```
 
 ### Iterate Based on Results

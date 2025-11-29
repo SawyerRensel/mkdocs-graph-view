@@ -9,7 +9,7 @@ Get up and running with the Graph Plugin in minutes.
 ```yaml
 plugins:
   - search
-  - graph
+  - graph-view
 ```
 
 !!! tip
@@ -55,7 +55,7 @@ For most documentation sites:
 
 ```yaml
 plugins:
-  - graph
+  - graph-view
 ```
 
 ### Knowledge Base

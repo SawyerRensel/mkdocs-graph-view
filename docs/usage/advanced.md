@@ -65,7 +65,7 @@ The graph complements search by providing visual navigation:
 ```yaml
 plugins:
   - search
-  - graph
+  - graph-view
 ```
 
 Users can:
@@ -159,7 +159,7 @@ Hide the graph on individual pages using frontmatter:
 ```yaml
 ---
 hide:
-  - graph
+  - graph-view
 ---
 
 # Page Title

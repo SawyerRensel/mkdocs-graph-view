@@ -9,7 +9,7 @@ For most documentation sites, the defaults work great:
 ```yaml
 plugins:
   - search
-  - graph
+  - graph-view
 ```
 
 ## Small Documentation (< 50 pages)

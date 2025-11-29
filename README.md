@@ -28,7 +28,7 @@ Add the plugin to your `mkdocs.yml`:
 ```yaml
 plugins:
   - search
-  - graph
+  - graph-view
 ```
 
 That's it! The plugin will automatically:

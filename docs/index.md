@@ -60,7 +60,7 @@ Add to your `mkdocs.yml`:
 ```yaml
 plugins:
   - search
-  - graph
+  - graph-view
 ```
 
 That's it! Your documentation now has interactive graph visualizations.

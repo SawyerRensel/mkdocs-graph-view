@@ -230,7 +230,7 @@ cat > mkdocs.yml << 'EOF'
 site_name: Test Site
 plugins:
   - search
-  - graph
+  - graph-view
 EOF
 
 # Create some docs
