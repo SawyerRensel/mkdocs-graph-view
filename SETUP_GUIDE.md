@@ -33,7 +33,7 @@ Issues = "https://github.com/sawyerrensel/mkdocs-graph-view/issues"  # ← Updat
 Replace `[Your Name]` with your name:
 
 ```
-Copyright (c) 2025 Your Name  # ← Update this
+Copyright (c) 2025 Sawyer Rensel  # ← Update this
 ```
 
 ### Edit `mkdocs.yml`
