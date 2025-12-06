@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mkdocs-graph-view"
-version = "0.2.3"
+version = "0.2.5"
 description = "A MkDocs plugin for creating interactive graph visualizations of page connections"
 readme = "README.md"
 authors = [

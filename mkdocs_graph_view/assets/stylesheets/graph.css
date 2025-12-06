@@ -185,11 +185,15 @@
     stroke: var(--md-accent-fg-color);
     stroke-width: 2px;
     opacity: 0.7;
-    cursor: pointer;
 }
 
-.graph-node.tag-node:hover {
-    fill: none;
+.tag-hit-area {
+    cursor: pointer;
+    pointer-events: all;
+}
+
+/* Apply hover effect when hovering over the tag hit area */
+.tag-hit-area:hover ~ .graph-node.tag-node {
     opacity: 1;
     stroke-width: 3px;
     filter: drop-shadow(0 0 6px var(--md-accent-fg-color));
