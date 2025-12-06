@@ -4,7 +4,7 @@
 
 - Python 3.8 or higher
 - MkDocs 1.4.0 or higher
-- (Recommended) Material for MkDocs theme
+- Material for MkDocs 9.6.0 or higher (for [`show_tags`](../configuration/options.md#show_tags) functionality)
 
 ## Install from PyPI
 

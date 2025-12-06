@@ -134,7 +134,9 @@ plugins:
 
 - **Type**: `bool`
 - **Default**: `false`
-- **Description**: Display page tags in graph node labels
+- **Description**: Display tags as separate nodes in the graph view
+
+When enabled, tags appear as distinct nodes in both local and global graph views, with edges connecting pages to their associated tags. This feature is inspired by [Quartz's graph view](https://quartz.jzhao.xyz/features/graph-view).
 
 Requires the `tags` plugin to be enabled.
 
@@ -144,6 +146,13 @@ plugins:
   - graph-view:
       show_tags: true
 ```
+
+Tag nodes are visually distinct from page nodes with:
+- Hollow/outlined appearance (no fill)
+- Accent color for stroke and label
+- Hashtag (#) prefix in label
+- Semi-transparent that becomes fully opaque on hover
+- Clickable if a [tags index](https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/#adding-a-tags-index) exists (navigates to the tag's section on the tags index)
 
 ## Interaction Settings
 
