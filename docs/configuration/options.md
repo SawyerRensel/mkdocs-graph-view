@@ -148,9 +148,11 @@ plugins:
 ```
 
 Tag nodes are visually distinct from page nodes with:
-- Different color (accent color)
-- Non-clickable (they don't navigate anywhere)
-- Semi-transparent appearance that becomes fully opaque on hover
+- Hollow/outlined appearance (no fill)
+- Accent color for stroke and label
+- Hashtag (#) prefix in label
+- Semi-transparent that becomes fully opaque on hover
+- Clickable if a [tags index](https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/#adding-a-tags-index) exists (navigates to the tag's section on the tags index)
 
 ## Interaction Settings
 

@@ -248,6 +248,14 @@ document.addEventListener("DOMContentLoaded", async function () {
             nodeGroup.call(drag(simulation));
         }
 
+        // Add invisible hit area for tag nodes to prevent jitter
+        nodeGroup.filter(d => d.group === 2)
+            .append("circle")
+            .attr("class", "tag-hit-area")
+            .attr("r", isMini ? 4 : 6)
+            .style("fill", "transparent")
+            .style("pointer-events", "all");
+
         const circle = nodeGroup.append("circle")
             .attr("class", "graph-node")
             .attr("r", isMini ? 4 : 6)
@@ -263,9 +271,17 @@ document.addEventListener("DOMContentLoaded", async function () {
             .text(d => d.title);
 
         nodeGroup.on("click", (event, d) => {
-            // Don't navigate for tag nodes
-            if (d.group === 2) return;
+            // Handle tag nodes
+            if (d.group === 2) {
+                // If tag has a URL (tags index exists), navigate to it
+                if (d.url) {
+                    const target = (window.graph_base_url || "") + d.url;
+                    window.location.href = target;
+                }
+                return;
+            }
 
+            // Handle page nodes
             const target = (window.graph_base_url || "") + d.id;
             window.location.href = target;
         });
