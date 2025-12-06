@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+- **BREAKING**: `show_tags` now displays tags as separate nodes in the graph view instead of appending them to page titles
+  - Tags appear as distinct hollow/outlined nodes with accent color
+  - Tag labels include hashtag (#) prefix
+  - Pages are connected to their tag nodes via edges
+  - Tag nodes are clickable if a tags index exists (navigates to tag section)
+  - Inspired by [Quartz's graph view](https://quartz.jzhao.xyz/features/graph-view)
+
 ## [0.1.0] - 2025-11-29
 
 - Initial release of MkDocs Graph Plugin

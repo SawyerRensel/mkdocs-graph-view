@@ -9,7 +9,7 @@ A MkDocs plugin that creates interactive graph visualizations of page connection
 - 🎨 **Material Theme Integration**: Seamlessly integrates with Material for MkDocs
 - 📱 **Responsive Design**: Automatically adapts to mobile and desktop layouts
 - ⚙️ **Highly Configurable**: Customize physics simulation, visual appearance, and interactions
-- 🏷️ **Tag Support**: Display page tags in graph labels
+- 🏷️ **Tag Support**: Display tags as separate nodes in the graph (like Quartz)
 - 🌓 **Dark Mode**: Full support for light and dark themes
 - ⚡ **Performance**: Efficient BFS-based filtering for large documentation sites
 
@@ -68,7 +68,7 @@ plugins:
       # Visual settings
       scale: 1.1                        # Overall scale
       font_size: 10                     # Label font size
-      show_tags: false                  # Show page tags in labels
+      show_tags: false                  # Show tags as separate nodes
 
       # Interaction
       enable_drag: true                 # Allow dragging nodes
@@ -88,7 +88,7 @@ plugins:
 | `link_distance` | int | `50` | Pixel distance between connected nodes |
 | `scale` | float | `1.1` | Overall graph scale |
 | `font_size` | int | `10` | Font size for node labels |
-| `show_tags` | bool | `false` | Display page tags in graph labels |
+| `show_tags` | bool | `false` | Display tags as separate nodes in graph view |
 | `enable_drag` | bool | `true` | Allow dragging nodes |
 | `enable_zoom` | bool | `true` | Allow zooming and panning |
 | `focus_on_hover` | bool | `true` | Highlight connections on hover |
@@ -126,7 +126,7 @@ plugins:
   - tags                                # Enable tags plugin first
   - graph-view:
       local_graph_depth: 2
-      show_tags: true                   # Show tags in labels
+      show_tags: true                   # Show tags as separate nodes
       font_size: 11                     # Larger for readability
       focus_on_hover: true
 ```

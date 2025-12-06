@@ -48,8 +48,27 @@ class GraphPlugin(BasePlugin[GraphConfig]):
         self.nodes = {}  # Use dict to avoid duplicates
         self.links = []
         self.page_tags = {}  # Store tags for each page if available
+        self.tags_index_url = None  # URL of the tags index page
 
     def on_page_content(self, html, page, config, files):
+        # Check if this page is the tags index
+        # Material for MkDocs tags plugin uses this marker
+        if '<!-- material/tags -->' in html:
+            self.tags_index_url = page.url
+            log.info(f"Graph plugin: Tags index marker found in HTML for page: {page.url}")
+
+        # Also check the raw markdown file content
+        if hasattr(page, 'file') and hasattr(page.file, 'src_path'):
+            src_path = os.path.join(config['docs_dir'], page.file.src_path)
+            try:
+                with open(src_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    if '<!-- material/tags -->' in content:
+                        self.tags_index_url = page.url
+                        log.info(f"Graph plugin: Tags index marker found in source for page: {page.url}")
+            except Exception as e:
+                log.debug(f"Graph plugin: Could not read source file {src_path}: {e}")
+
         # Check if graph should be hidden on this page
         if hasattr(page, 'meta') and 'hide' in page.meta:
             hide_list = page.meta.get('hide', [])
@@ -131,8 +150,56 @@ var graph_config = {json.dumps(graph_config)};
         # Convert nodes dict to list
         nodes_list = list(self.nodes.values())
 
+        # If show_tags is enabled, create tag nodes and links
+        if self.config.show_tags:
+            tag_nodes = {}  # Dict to track unique tags
+            tag_links = []  # Links from pages to tags
+
+            if self.tags_index_url:
+                log.info(f"Graph plugin: Tags index detected at {self.tags_index_url}")
+            else:
+                log.info("Graph plugin: No tags index detected")
+
+            # Collect all tags and create tag nodes
+            for node in nodes_list:
+                if node.get("tags"):
+                    for tag in node["tags"]:
+                        # Create a unique ID for the tag node
+                        tag_id = f"tag:{tag}"
+
+                        # Add tag node if not already present
+                        if tag_id not in tag_nodes:
+                            # Create URL for tag (points to tags index with anchor)
+                            tag_url = None
+                            if self.tags_index_url:
+                                # Material for MkDocs uses "tag:{slug}" format for anchors
+                                tag_slug = tag.lower().replace(' ', '-')
+                                tag_url = f"{self.tags_index_url}#tag:{tag_slug}"
+                                log.info(f"Graph plugin: Created tag node '{tag}' with URL: {tag_url}")
+
+                            tag_nodes[tag_id] = {
+                                "id": tag_id,
+                                "title": f"#{tag}",
+                                "tags": [],
+                                "group": 2,  # Different group for tags
+                                "url": tag_url  # URL to tags index anchor
+                            }
+
+                        # Create link from page to tag
+                        tag_links.append({
+                            "source": node["id"],
+                            "target": tag_id,
+                            "value": 1
+                        })
+
+            # Add tag nodes to the nodes list
+            nodes_list.extend(tag_nodes.values())
+
+            # Add tag links to the links list
+            self.links.extend(tag_links)
+
         # Filter links to ensure target exists in nodes
-        node_ids = set(self.nodes.keys())
+        node_ids = set(node["id"] for node in nodes_list)
         valid_links = [l for l in self.links if l["target"] in node_ids]
 
         # Remove self-loops
