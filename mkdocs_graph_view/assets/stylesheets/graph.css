@@ -178,3 +178,23 @@
         -1px 1px 1px rgba(0, 0, 0, 0.8),
         1px 1px 1px rgba(0, 0, 0, 0.8);
 }
+
+/* --- Tag Node Styling --- */
+.graph-node.tag-node {
+    fill: var(--md-accent-fg-color);
+    stroke: var(--md-accent-fg-color);
+    stroke-width: 2px;
+    opacity: 0.7;
+    cursor: default;
+}
+
+.graph-node.tag-node:hover {
+    fill: var(--md-accent-fg-color);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px var(--md-accent-fg-color));
+}
+
+.graph-label.tag-label {
+    font-weight: 600;
+    fill: var(--md-accent-fg-color);
+}

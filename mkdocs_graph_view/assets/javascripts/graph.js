@@ -251,22 +251,21 @@ document.addEventListener("DOMContentLoaded", async function () {
         const circle = nodeGroup.append("circle")
             .attr("class", "graph-node")
             .attr("r", isMini ? 4 : 6)
-            .classed("active", d => d.id === currentPage); // Highlight current page
+            .classed("active", d => d.id === currentPage) // Highlight current page
+            .classed("tag-node", d => d.group === 2); // Mark tag nodes
 
         const label = nodeGroup.append("text")
             .attr("class", "graph-label")
             .attr("text-anchor", "middle")
             .attr("dy", isMini ? -10 : -12)
             .style("font-size", `${cfg.font_size}px`)
-            .text(d => {
-                let text = d.title;
-                if (cfg.show_tags && d.tags && d.tags.length > 0) {
-                    text += ` [${d.tags.join(', ')}]`;
-                }
-                return text;
-            });
+            .classed("tag-label", d => d.group === 2) // Mark tag labels
+            .text(d => d.title);
 
         nodeGroup.on("click", (event, d) => {
+            // Don't navigate for tag nodes
+            if (d.group === 2) return;
+
             const target = (window.graph_base_url || "") + d.id;
             window.location.href = target;
         });

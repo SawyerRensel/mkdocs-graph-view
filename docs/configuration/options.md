@@ -134,7 +134,9 @@ plugins:
 
 - **Type**: `bool`
 - **Default**: `false`
-- **Description**: Display page tags in graph node labels
+- **Description**: Display tags as separate nodes in the graph view
+
+When enabled, tags appear as distinct nodes in both local and global graph views, with edges connecting pages to their associated tags. This feature is inspired by [Quartz's graph view](https://quartz.jzhao.xyz/features/graph-view).
 
 Requires the `tags` plugin to be enabled.
 
@@ -144,6 +146,11 @@ plugins:
   - graph-view:
       show_tags: true
 ```
+
+Tag nodes are visually distinct from page nodes with:
+- Different color (accent color)
+- Non-clickable (they don't navigate anywhere)
+- Semi-transparent appearance that becomes fully opaque on hover
 
 ## Interaction Settings
 

@@ -47,7 +47,7 @@ Customize the mini graph container:
 
 ### With Tags Plugin
 
-Display page tags in graph labels:
+Display tags as separate nodes in the graph:
 
 ```yaml
 plugins:
@@ -56,7 +56,7 @@ plugins:
       show_tags: true
 ```
 
-Tags appear in brackets after page titles: `Page Title [tag1, tag2]`
+When enabled, tags appear as distinct nodes in the graph view, similar to [Quartz](https://quartz.jzhao.xyz/features/graph-view). Pages are connected to their tag nodes via edges, making it easy to see which pages share common tags.
 
 ### With Search Plugin
 

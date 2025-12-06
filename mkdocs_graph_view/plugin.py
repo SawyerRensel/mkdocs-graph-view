@@ -131,8 +131,42 @@ var graph_config = {json.dumps(graph_config)};
         # Convert nodes dict to list
         nodes_list = list(self.nodes.values())
 
+        # If show_tags is enabled, create tag nodes and links
+        if self.config.show_tags:
+            tag_nodes = {}  # Dict to track unique tags
+            tag_links = []  # Links from pages to tags
+
+            # Collect all tags and create tag nodes
+            for node in nodes_list:
+                if node.get("tags"):
+                    for tag in node["tags"]:
+                        # Create a unique ID for the tag node
+                        tag_id = f"tag:{tag}"
+
+                        # Add tag node if not already present
+                        if tag_id not in tag_nodes:
+                            tag_nodes[tag_id] = {
+                                "id": tag_id,
+                                "title": tag,
+                                "tags": [],
+                                "group": 2  # Different group for tags
+                            }
+
+                        # Create link from page to tag
+                        tag_links.append({
+                            "source": node["id"],
+                            "target": tag_id,
+                            "value": 1
+                        })
+
+            # Add tag nodes to the nodes list
+            nodes_list.extend(tag_nodes.values())
+
+            # Add tag links to the links list
+            self.links.extend(tag_links)
+
         # Filter links to ensure target exists in nodes
-        node_ids = set(self.nodes.keys())
+        node_ids = set(node["id"] for node in nodes_list)
         valid_links = [l for l in self.links if l["target"] in node_ids]
 
         # Remove self-loops
